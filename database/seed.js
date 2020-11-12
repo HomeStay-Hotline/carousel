@@ -47,7 +47,7 @@ const seedingPlaces = () => {
                 liked: false,
                 url: 'https://loremflickr.com/320/240/house'
             }
-            data.info.push(infoObj)
+            data.info.push(infoObj);
         }
         db.createPlaceDoc(data);
     }
@@ -59,11 +59,11 @@ const seedingActivities = () => {
         for (let j = 0; j < 12; j++) {
             let infoObj = {
                 rating: generateRandFloat(3.5, 5),
-                listing_type: faker.lorem.sentance,
+                activity_name: faker.lorem.sentence(),
                 price: generateRandInt(5, 30),
                 url: 'https://loremflickr.com/320/240/vacation'
             }
-            data.info.push(infoObj)
+            data.info.push(infoObj);
         }
         db.createActivityDoc(data);
     }
