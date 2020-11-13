@@ -58,5 +58,17 @@ const createActivityDoc = (data) => {
     })
 };
 
+const fetchPlaceDatabyID = (randID) => {
+  // fetch data for 1 out of the 100 possible place carsousel renderings
+  return Places.find({id: randID});
+};
+
+const fetchActivityDatabyID = (randID) => {
+  // fetch data for 1 out of the 100 possible activity carsousel renderings
+  return Activities.find({id: randID});
+};
+
 module.exports.createPlaceDoc = createPlaceDoc;
 module.exports.createActivityDoc = createActivityDoc;
+module.exports.fetchPlaceDatabyID = fetchPlaceDatabyID;
+module.exports.fetchActivityDatabyID = fetchActivityDatabyID;
