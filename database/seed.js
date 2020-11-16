@@ -38,7 +38,7 @@ const seedingPlaces = () => {
         location: `${faker.address.city()}, ${usState}`,
         price: generateRandInt(50, 200),
         liked: false,
-        url: 'https://loremflickr.com/320/240/house',
+        url: `https://loremflickr.com/320/240/house?random${j}`,
       };
       data.info.push(infoObj);
     }
@@ -54,7 +54,7 @@ const seedingActivities = () => {
         rating: generateRandFloat(3.5, 5),
         activity_name: faker.lorem.sentence(),
         price: generateRandInt(5, 30),
-        url: 'https://loremflickr.com/320/240/vacation',
+        url: `https://loremflickr.com/320/240/vacation?random=${j}`,
       };
       data.info.push(infoObj);
     }
