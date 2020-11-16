@@ -7,20 +7,20 @@ const generateRandInt = (min, max) => Math.floor(Math.random() * (max - min + 1)
 
 const generateRandomListingType = () => {
   const options = [
-    'entire home',
-    'private room',
-    'room in boutique hotel',
-    'hotel room',
-    'guesthouse',
-    'farm stay',
-    'mansion',
-    'studio',
-    'apartment',
-    'studio apartment',
-    'penthouse',
-    'boathouse',
-    'cabin',
-    'cottage',
+    'Entire home',
+    'Private room',
+    'Room in boutique hotel',
+    'Hotel room',
+    'Guesthouse',
+    'Farm stay',
+    'Mansion',
+    'Studio',
+    'Apartment',
+    'Studio apartment',
+    'Penthouse',
+    'Boathouse',
+    'Cabin',
+    'Cottage',
   ];
   const idx = Math.floor(Math.random() * options.length);
   return options[idx];
