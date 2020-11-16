@@ -64,3 +64,6 @@ const seedingActivities = () => {
 
 seedingPlaces();
 seedingActivities();
+
+module.exports.seedingPlaces = seedingPlaces;
+module.exports.seedingActivities = seedingActivities;
