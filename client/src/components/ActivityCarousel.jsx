@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function App() {
+export default function ActivityCarousel() {
   return (
-    <div className="app-comp">
+    <div>
       hello
     </div>
   );
