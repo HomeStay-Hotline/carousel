@@ -7,20 +7,20 @@ const generateRandInt = (min, max) => Math.floor(Math.random() * (max - min + 1)
 
 const generateRandomListingType = () => {
   const options = [
-    'entire home',
-    'private room',
-    'room in boutique hotel',
-    'hotel room',
-    'guesthouse',
-    'farm stay',
-    'mansion',
-    'studio',
-    'apartment',
-    'studio apartment',
-    'penthouse',
-    'boathouse',
-    'cabin',
-    'cottage',
+    'Entire home',
+    'Private room',
+    'Room in boutique hotel',
+    'Hotel room',
+    'Guesthouse',
+    'Farm stay',
+    'Mansion',
+    'Studio',
+    'Apartment',
+    'Studio apartment',
+    'Penthouse',
+    'Boathouse',
+    'Cabin',
+    'Cottage',
   ];
   const idx = Math.floor(Math.random() * options.length);
   return options[idx];
@@ -38,7 +38,7 @@ const seedingPlaces = () => {
         location: `${faker.address.city()}, ${usState}`,
         price: generateRandInt(50, 200),
         liked: false,
-        url: 'https://loremflickr.com/320/240/house',
+        url: `https://loremflickr.com/320/240/house?lock=${i + j}&random${j}`,
       };
       data.info.push(infoObj);
     }
@@ -54,7 +54,7 @@ const seedingActivities = () => {
         rating: generateRandFloat(3.5, 5),
         activity_name: faker.lorem.sentence(),
         price: generateRandInt(5, 30),
-        url: 'https://loremflickr.com/320/240/vacation',
+        url: `https://loremflickr.com/320/240/vacation?lock=${i + j}&random=${j}`,
       };
       data.info.push(infoObj);
     }

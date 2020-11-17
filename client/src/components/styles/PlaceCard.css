@@ -1,0 +1,11 @@
+.placecard-container {
+  /* border: 2px solid black; */
+  margin: 10px;
+}
+
+.place-img {
+  border-radius: 10px;
+  max-width: 100%;
+  height: auto;
+  width: auto; /* ie8 */
+}
