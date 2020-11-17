@@ -1,10 +1,11 @@
 import React from 'react';
+import './styles/PlaceCard.css';
 
 export default function PlaceCard({ place }) {
   return (
-    <div>
+    <div className="placecard-container">
       <div className="image-container">
-        <img src={place.url} alt="airbnb listing" />
+        <img className="place-img" src={place.url} alt="airbnb listing" />
         <span className="heart-icon" />
       </div>
       <div className="star-rating-container">

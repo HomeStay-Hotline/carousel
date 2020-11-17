@@ -4,7 +4,7 @@ import PlaceHeader from './PlaceHeader';
 import PlaceCarousel from './PlaceCarousel';
 import ActivityHeader from './ActivityHeader';
 import ActivityCarousel from './ActivityCarousel';
-import { fake } from 'faker';
+import './styles/App.css';
 
 export default function App() {
   const [places, setPlaces] = useState([]);
