@@ -8,9 +8,7 @@ import './styles/App.css';
 
 export default function App() {
   const [places, setPlaces] = useState([]);
-  const [viewPlaces, setViewPlaces] = useState([]);
   const [activities, setActivities] = useState([]);
-  const [viewActivities, setViewActivities] = useState([]);
   const [pageNumb, setPageNumb] = useState(1);
 
   useEffect(() => {
@@ -22,7 +20,6 @@ export default function App() {
         const fakePlaces = response.data[0].info;
         console.log('axios get running');
         setPlaces(fakePlaces);
-        setViewPlaces(fakePlaces.slice(0, 4));
       })
       .catch((err) => {
         console.error(err);
@@ -33,7 +30,6 @@ export default function App() {
       .then((response) => {
         const fakeActivs = response.data[0].info;
         setActivities(fakeActivs);
-        setViewActivities(fakeActivs.slice(0, 4));
       })
       .catch((err) => {
         console.error(err);
@@ -41,30 +37,22 @@ export default function App() {
   }, []);
 
   const handleArrowClick = (direction) => {
+    const carouselDiv = document.querySelector('.place-carousel-container');
     if (direction === 'r') {
-      // update page count
-      // update places that are shown
-      if (pageNumb === 1) {
-        console.log(places);
+      if (pageNumb !== 3) {
         setPageNumb(pageNumb + 1);
-        setViewPlaces(places.slice(4, 8));
-      } else if (pageNumb === 2) {
-        setPageNumb(pageNumb + 1);
-        setViewPlaces(places.slice(8));
+        carouselDiv.scrollBy(1000, 0);
       } else {
         setPageNumb(1);
-        setViewPlaces(places.slice(0, 4));
+        carouselDiv.scrollBy(-3000, 0);
       }
     } else if (direction === 'l') {
-      if (pageNumb === 3) {
+      if (pageNumb !== 1) {
         setPageNumb(pageNumb - 1);
-        setViewPlaces(places.slice(4, 8));
-      } else if (pageNumb === 2) {
-        setPageNumb(pageNumb - 1);
-        setViewPlaces(places.slice(0, 4));
+        carouselDiv.scrollBy(-1000, 0);
       } else {
         setPageNumb(3);
-        setViewPlaces(places.slice(8));
+        carouselDiv.scrollBy(3000, 0);
       }
     }
   };
@@ -73,11 +61,11 @@ export default function App() {
     <div className="app-comp">
       <div>
         <PlaceHeader handleArrowClick={handleArrowClick} pageNumb={pageNumb} />
-        <PlaceCarousel places={viewPlaces} />
+        <PlaceCarousel places={places} />
       </div>
       <div>
         <ActivityHeader />
-        <ActivityCarousel activities={viewActivities} />
+        <ActivityCarousel activities={activities} />
       </div>
     </div>
   );
