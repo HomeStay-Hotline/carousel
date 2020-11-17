@@ -1,11 +1,19 @@
 .placecard-container {
   /* border: 2px solid black; */
-  margin: 10px;
+  width: 250px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 20px;
+  transition: 0.1s ease-in-out all;
+}
+
+.place-img:hover {
+  transform: scale(1.025);
 }
 
 .place-img {
   border-radius: 10px;
-  max-width: 100%;
+  width: 230px;
   height: auto;
-  width: auto; /* ie8 */
+  transition: 0.1s ease-in-out all;
 }

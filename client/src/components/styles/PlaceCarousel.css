@@ -1,9 +1,13 @@
 .place-carousel-container {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid black;
-  margin-left: 50px;
-  margin-right: 50px;
+  overflow: scroll;
+  width: 1000px;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
+
+.place-carousel-container::-webkit-scrollbar {
+  /* removes scrollbar from view */
+  display: none;
 }

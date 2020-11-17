@@ -2,6 +2,7 @@ import React from 'react';
 import './styles/PlaceCard.css';
 
 export default function PlaceCard({ place }) {
+  const emergancyURl = 'http://lorempixel.com/320/240/';
   return (
     <div className="placecard-container">
       <div className="image-container">
