@@ -49,12 +49,12 @@ const seedingPlaces = () => {
 const seedingActivities = () => {
   for (let i = 1; i <= 100; i++) {
     const data = { id: i, info: [] };
-    for (let j = 0; j < 12; j++) {
+    for (let j = 0; j < 18; j++) {
       const infoObj = {
         rating: generateRandFloat(3.5, 5),
         activity_name: faker.lorem.sentence(),
         price: generateRandInt(5, 30),
-        url: `https://loremflickr.com/320/240/vacation?lock=${i + j}&random=${j}`,
+        url: `https://loremflickr.com/320/480/vacation?lock=${i + j}&random=${j}`,
       };
       data.info.push(infoObj);
     }
