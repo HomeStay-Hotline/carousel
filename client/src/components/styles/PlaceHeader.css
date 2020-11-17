@@ -1,0 +1,27 @@
+.place-header-comp {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 1000px;
+  padding: 15px;
+}
+
+.right-place-button {
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.left-place-button {
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.arrow-and-count-container {
+  position: relative;
+  float: right;
+}
+
+button {
+  border: 1px solid grey;
+  background-color: white;
+  outline: none;
+}
