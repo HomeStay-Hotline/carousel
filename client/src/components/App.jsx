@@ -10,6 +10,7 @@ export default function App() {
   const [places, setPlaces] = useState([]);
   const [activities, setActivities] = useState([]);
   const [pageNumb, setPageNumb] = useState(1);
+  const [pageNumbActivs, setPageNumbActivs] = useState(1);
 
   useEffect(() => {
     console.log('useEffect called');
@@ -36,7 +37,7 @@ export default function App() {
       });
   }, []);
 
-  const handleArrowClick = (direction) => {
+  const handleArrowClickPlaces = (direction) => {
     const carouselDiv = document.querySelector('.place-carousel-container');
     if (direction === 'r') {
       if (pageNumb !== 3) {
@@ -57,14 +58,35 @@ export default function App() {
     }
   };
 
+  const handleArrowClickActivities = (direction) => {
+    const carouselDiv = document.querySelector('.activity-carousel-container');
+    if (direction === 'r') {
+      if (pageNumbActivs !== 3) {
+        setPageNumbActivs(pageNumbActivs + 1);
+        carouselDiv.scrollBy(1000, 0);
+      } else {
+        setPageNumbActivs(1);
+        carouselDiv.scrollBy(-3000, 0);
+      }
+    } else if (direction === 'l') {
+      if (pageNumbActivs !== 1) {
+        setPageNumbActivs(pageNumbActivs - 1);
+        carouselDiv.scrollBy(-1000, 0);
+      } else {
+        setPageNumbActivs(3);
+        carouselDiv.scrollBy(3000, 0);
+      }
+    }
+  };
+
   return (
     <div className="app-comp">
       <div>
-        <PlaceHeader handleArrowClick={handleArrowClick} pageNumb={pageNumb} />
+        <PlaceHeader handleArrowClick={handleArrowClickPlaces} pageNumb={pageNumb} />
         <PlaceCarousel places={places} />
       </div>
       <div>
-        <ActivityHeader />
+        <ActivityHeader handleArrowClick={handleArrowClickActivities} pageNumb={pageNumbActivs} />
         <ActivityCarousel activities={activities} />
       </div>
     </div>
