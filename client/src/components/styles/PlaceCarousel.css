@@ -5,6 +5,7 @@
   width: 1000px;
   white-space: nowrap;
   scroll-behavior: smooth;
+  padding-top: 5px;
 }
 
 .place-carousel-container::-webkit-scrollbar {

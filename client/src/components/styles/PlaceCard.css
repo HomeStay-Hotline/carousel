@@ -17,3 +17,92 @@
   height: auto;
   transition: 0.1s ease-in-out all;
 }
+
+.place-image-container {
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.place-heart-icon {
+  opacity: 70%;
+  background: inherit;
+  position: relative;
+  height: 12px;
+  width: 12px;
+  transform: rotate(-45deg);
+  cursor: pointer;
+  transition: 0.2s ease-in-out all;
+  box-sizing: border-box;
+}
+
+.place-heart-icon::after {
+	background: inherit;
+	border-radius: 50%;
+	content: '';
+	position: absolute;
+	top: -50%;
+	left: 0;
+	height: 12px;
+  width: 12px;
+}
+
+.place-heart-icon::before {
+	background: inherit;
+	border-radius: 50%;
+	content: '';
+	position: absolute;
+	top: 0;
+	right: -50%;
+	height: 12px;
+  width: 12px;
+}
+
+.p-heart-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.place-image-container {
+  position: relative;
+}
+
+.place-rating, .place-numb-beds {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+}
+
+.place-rating-container {
+  margin-bottom: 5px;
+}
+
+.place-info-container {
+  margin-bottom: 2.5px;
+}
+
+.place-listing-type {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 13.5px;
+}
+
+.p-numb-reviews {
+  color: grey;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+}
+
+
+
+.place-location, .place-pnight {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 13.5px;
+  margin-bottom: 5px;
+}
+
+.place-price {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
