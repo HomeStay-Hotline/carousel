@@ -1,13 +1,34 @@
-import React from 'react';
-import './styles/Headers.css';
+import React, { useState } from 'react';
 
 export default function ActivityHeader({ handleArrowClick, pageNumb}) {
+  const [pageNumbActivs, setPageNumbActivs] = useState(1);
+  const handleArrowClickActivities = (direction) => {
+    const carouselDiv = document.querySelector('.activity-carousel-container');
+    carouselDiv.scrollBy(1000, 0);
+    if (direction === 'r') {
+      if (pageNumbActivs !== 3) {
+        setPageNumbActivs(pageNumbActivs + 1);
+        carouselDiv.scrollBy(1000, 0);
+      } else {
+        setPageNumbActivs(1);
+        carouselDiv.scrollBy(-3000, 0);
+      }
+    } else if (direction === 'l') {
+      if (pageNumbActivs !== 1) {
+        setPageNumbActivs(pageNumbActivs - 1);
+        carouselDiv.scrollBy(-1000, 0);
+      } else {
+        setPageNumbActivs(3);
+        carouselDiv.scrollBy(3000, 0);
+      }
+    }
+  };
   return (
     <div className="header-comp">
       <span className="header-text">Things to do nearby</span>
       <span className="arrow-and-count-container">
         <span className="page-count">
-          {pageNumb}
+          {pageNumbActivs}
           {' '}
           / 3
         </span>
@@ -15,7 +36,7 @@ export default function ActivityHeader({ handleArrowClick, pageNumb}) {
         <button
           className="right-button"
           type="button"
-          onClick={() => { handleArrowClick('l'); }}
+          onClick={() => { handleArrowClickActivities('l'); }}
         >
           <div className="left-chevron" />
         </button>
@@ -23,7 +44,7 @@ export default function ActivityHeader({ handleArrowClick, pageNumb}) {
         <button
           className="left-button"
           type="button"
-          onClick={() => { handleArrowClick('r'); }}
+          onClick={() => { handleArrowClickActivities('r'); }}
         >
           <div className="right-chevron" />
         </button>

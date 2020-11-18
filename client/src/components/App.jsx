@@ -5,6 +5,11 @@ import PlaceCarousel from './PlaceCarousel';
 import ActivityHeader from './ActivityHeader';
 import ActivityCarousel from './ActivityCarousel';
 import './styles/App.css';
+import './styles/Headers.css';
+import './styles/PlaceCarousel.css';
+import './styles/ActivityCarousel.css';
+import './styles/PlaceCard.css';
+import './styles/ActivityCard.css';
 
 export default function App() {
   const [places, setPlaces] = useState([]);
@@ -37,56 +42,14 @@ export default function App() {
       });
   }, []);
 
-  const handleArrowClickPlaces = (direction) => {
-    const carouselDiv = document.querySelector('.place-carousel-container');
-    if (direction === 'r') {
-      if (pageNumb !== 3) {
-        setPageNumb(pageNumb + 1);
-        carouselDiv.scrollBy(1000, 0);
-      } else {
-        setPageNumb(1);
-        carouselDiv.scrollBy(-3000, 0);
-      }
-    } else if (direction === 'l') {
-      if (pageNumb !== 1) {
-        setPageNumb(pageNumb - 1);
-        carouselDiv.scrollBy(-1000, 0);
-      } else {
-        setPageNumb(3);
-        carouselDiv.scrollBy(3000, 0);
-      }
-    }
-  };
-
-  const handleArrowClickActivities = (direction) => {
-    const carouselDiv = document.querySelector('.activity-carousel-container');
-    if (direction === 'r') {
-      if (pageNumbActivs !== 3) {
-        setPageNumbActivs(pageNumbActivs + 1);
-        carouselDiv.scrollBy(1000, 0);
-      } else {
-        setPageNumbActivs(1);
-        carouselDiv.scrollBy(-3000, 0);
-      }
-    } else if (direction === 'l') {
-      if (pageNumbActivs !== 1) {
-        setPageNumbActivs(pageNumbActivs - 1);
-        carouselDiv.scrollBy(-1000, 0);
-      } else {
-        setPageNumbActivs(3);
-        carouselDiv.scrollBy(3000, 0);
-      }
-    }
-  };
-
   return (
     <div className="app-comp">
       <div>
-        <PlaceHeader handleArrowClick={handleArrowClickPlaces} pageNumb={pageNumb} />
+        <PlaceHeader />
         <PlaceCarousel places={places} />
       </div>
       <div>
-        <ActivityHeader handleArrowClick={handleArrowClickActivities} pageNumb={pageNumbActivs} />
+        <ActivityHeader />
         <ActivityCarousel activities={activities} />
       </div>
     </div>
