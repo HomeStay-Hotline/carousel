@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 export default function PlaceCard({ place }) {
   const [heartColor, setHeartColor] = useState(false);
@@ -12,7 +13,6 @@ export default function PlaceCard({ place }) {
         <img className="place-img" src={place.url} alt="airbnb listing" />
         <div className="white-circle" />
         {place.price % 2 === 0 ? <div className="superhost-icon">SUPERHOST</div> : ''}
-        {/* <div className="superhost-icon">SUPERHOST</div> */}
         <div onClick={handleHeartClick} className="a-heart-container">
           {heartColor
             ? <div className="place-heart-icon" style={{ background: 'red' }} />
@@ -56,3 +56,14 @@ export default function PlaceCard({ place }) {
     </div>
   );
 }
+
+PlaceCard.propTypes = {
+  place: PropTypes.shape({
+    beds: PropTypes.number.isRequired,
+    location: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    total_ratings: PropTypes.number.isRequired,
+    url: PropTypes.string.isRequired,
+  }).isRequired,
+};

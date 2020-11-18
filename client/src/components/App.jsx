@@ -18,13 +18,11 @@ export default function App() {
   const [pageNumbActivs, setPageNumbActivs] = useState(1);
 
   useEffect(() => {
-    console.log('useEffect called');
     const id = Math.floor(Math.random() * 100);
     const placesURL = `/api/home/${id}/images/places`;
     axios.get(placesURL)
       .then((response) => {
         const fakePlaces = response.data[0].info;
-        console.log('axios get running');
         setPlaces(fakePlaces);
       })
       .catch((err) => {

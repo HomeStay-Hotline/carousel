@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function ActivityHeader({ handleArrowClick, pageNumb}) {
+export default function ActivityHeader() {
   const [pageNumbActivs, setPageNumbActivs] = useState(1);
   const handleArrowClickActivities = (direction) => {
     const carouselDiv = document.querySelector('.activity-carousel-container');

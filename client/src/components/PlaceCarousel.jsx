@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import PlaceCard from './PlaceCard';
 
 export default function PlaceCarousel({ places }) {
@@ -9,3 +10,7 @@ export default function PlaceCarousel({ places }) {
     </div>
   );
 }
+
+PlaceCarousel.propTypes = {
+  places: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
