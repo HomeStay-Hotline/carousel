@@ -23,6 +23,32 @@
   margin-bottom: 5px;
 }
 
+.white-circle {
+  position: absolute;
+  top: 4.7px;
+  right: 7px;
+  background-color: white;
+  opacity: 60%;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+}
+
+.superhost-icon {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  background-color: white;
+  opacity: 85%;
+  width: auto;
+  height: auto;
+  padding: 4px 8px 4px 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  border-radius: 5px;
+}
+
 .place-heart-icon {
   opacity: 70%;
   background: inherit;
@@ -91,8 +117,6 @@
   font-family: 'Open Sans', sans-serif;
   font-size: 13px;
 }
-
-
 
 .place-location, .place-pnight {
   font-family: 'Montserrat', sans-serif;

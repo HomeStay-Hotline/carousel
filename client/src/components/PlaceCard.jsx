@@ -11,6 +11,8 @@ export default function PlaceCard({ place }) {
       <div className="place-image-container">
         <img className="place-img" src={place.url} alt="airbnb listing" />
         <div className="white-circle" />
+        {place.price % 2 === 0 ? <div className="superhost-icon">SUPERHOST</div> : ''}
+        {/* <div className="superhost-icon">SUPERHOST</div> */}
         <div onClick={handleHeartClick} className="a-heart-container">
           {heartColor
             ? <div className="place-heart-icon" style={{ background: 'red' }} />
