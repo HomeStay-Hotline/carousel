@@ -1,30 +1,52 @@
-import React from 'react';
-import './styles/PlaceHeader.css';
+import React, { useState } from 'react';
 
-export default function PlaceHeader({ handleArrowClick, pageNumb }) {
+export default function PlaceHeader() {
+  const [pageNumb, setPageNumb] = useState(1);
+  const handleArrowClickPlaces = (direction) => {
+    const carouselDiv = document.querySelector('.place-carousel-container');
+    if (direction === 'r') {
+      if (pageNumb !== 3) {
+        setPageNumb(pageNumb + 1);
+        carouselDiv.scrollBy(1150, 0);
+      } else {
+        setPageNumb(1);
+        carouselDiv.scrollBy(-3450, 0);
+      }
+    } else if (direction === 'l') {
+      if (pageNumb !== 1) {
+        setPageNumb(pageNumb - 1);
+        carouselDiv.scrollBy(-1150, 0);
+      } else {
+        setPageNumb(3);
+        carouselDiv.scrollBy(3450, 0);
+      }
+    }
+  };
+
   return (
-    <div className="place-header-comp">
-      <span className="place-header-text">More places to stay</span>
+    <div className="header-comp">
+      <span className="header-text">More places to stay</span>
       <span className="arrow-and-count-container">
-        <span className="place-page-count">
+        <span className="page-count">
           {pageNumb}
-          /3
+          {' '}
+          / 3
         </span>
-        {' '}
+        &nbsp;&nbsp;&nbsp;
         <button
-          className="right-place-button"
+          className="right-button"
           type="button"
-          onClick={() => { handleArrowClick('l'); }}
+          onClick={() => { handleArrowClickPlaces('l'); }} // here
         >
-          {'<'}
+          <div className="left-chevron" />
         </button>
-        {' '}
+        &nbsp;&nbsp;&nbsp;
         <button
-          className="left-place-button"
+          className="left-button"
           type="button"
-          onClick={() => { handleArrowClick('r'); }}
+          onClick={() => { handleArrowClickPlaces('r'); }} // here
         >
-          {'>'}
+          <div className="right-chevron" />
         </button>
       </span>
     </div>

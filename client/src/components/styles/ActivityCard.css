@@ -1,26 +1,27 @@
-.placecard-container {
-  /* border: 2px solid black; */
-  width: 287.5px;
+.activity-card-container {
+  width: 191.66666666666667px;
   padding-right: 10px;
   padding-left: 10px;
   padding-bottom: 20px;
-  transition: 0.1s ease-in-out all;
+  overflow-wrap: normal;
+  white-space: pre-line;
 }
 
-.place-img:hover {
+.activity-img:hover {
   transform: scale(1.025);
 }
 
-.place-img {
+.activity-img {
   border-radius: 10px;
-  width: 267.5px;
+  width: 171.66666666666667px;
   height: auto;
   transition: 0.1s ease-in-out all;
 }
 
-.place-image-container {
-  position: relative;
-  margin-bottom: 5px;
+.a-heart-container {
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }
 
 .white-circle {
@@ -34,22 +35,7 @@
   height: 28px;
 }
 
-.superhost-icon {
-  position: absolute;
-  top: 7px;
-  left: 7px;
-  background-color: white;
-  opacity: 85%;
-  width: auto;
-  height: auto;
-  padding: 4px 8px 4px 8px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 13px;
-  border-radius: 5px;
-}
-
-.place-heart-icon {
+.activity-heart-icon {
   opacity: 70%;
   background: inherit;
   position: relative;
@@ -61,7 +47,7 @@
   box-sizing: border-box;
 }
 
-.place-heart-icon::after {
+.activity-heart-icon::after {
 	background: inherit;
 	border-radius: 50%;
 	content: '';
@@ -72,7 +58,7 @@
   width: 12px;
 }
 
-.place-heart-icon::before {
+.activity-heart-icon::before {
 	background: inherit;
 	border-radius: 50%;
 	content: '';
@@ -83,50 +69,35 @@
   width: 12px;
 }
 
-.p-heart-container {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
-.place-image-container {
+.activity-image-container {
   position: relative;
+  margin-bottom: 5px;
 }
 
-.place-rating, .place-numb-beds {
+.activity-rating {
   font-family: 'Open Sans', sans-serif;
   font-size: 13px;
 }
 
-.place-rating-container {
+.activity-rating-container {
   margin-bottom: 5px;
 }
 
-.place-info-container {
-  margin-bottom: 2.5px;
-}
-
-.place-listing-type {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  font-size: 13.5px;
-}
-
-.p-numb-reviews {
+.a-numb-reviews {
   color: grey;
   font-family: 'Open Sans', sans-serif;
   font-size: 13px;
 }
 
-.place-location, .place-pnight {
+.activity-price {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.activity-descrip, .activity-pperson {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-size: 13.5px;
   margin-bottom: 5px;
-}
-
-.place-price {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
 }

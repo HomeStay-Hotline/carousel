@@ -19,6 +19,7 @@ const placesSchema = new mongoose.Schema({
   id: Number,
   info: [{
     rating: Number,
+    total_ratings: Number,
     listing_type: String,
     beds: Number,
     location: String,
@@ -32,6 +33,7 @@ const activitiesSchema = new mongoose.Schema({
   id: Number,
   info: [{
     rating: Number,
+    total_ratings: Number,
     activity_name: String,
     price: Number,
     url: String,

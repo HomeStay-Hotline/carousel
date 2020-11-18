@@ -33,8 +33,9 @@ const seedingPlaces = () => {
     for (let j = 0; j < 12; j++) {
       const infoObj = {
         rating: generateRandFloat(3.5, 5),
+        total_ratings: generateRandInt(1, 50),
         listing_type: generateRandomListingType(),
-        beds: generateRandInt(1, 6),
+        beds: generateRandInt(2, 6),
         location: `${faker.address.city()}, ${usState}`,
         price: generateRandInt(50, 200),
         liked: false,
@@ -52,6 +53,7 @@ const seedingActivities = () => {
     for (let j = 0; j < 18; j++) {
       const infoObj = {
         rating: generateRandFloat(3.5, 5),
+        total_ratings: generateRandInt(1, 50),
         activity_name: faker.lorem.sentence(),
         price: generateRandInt(5, 30),
         url: `https://loremflickr.com/320/480/vacation?lock=${i + j}&random=${j}`,
