@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+.header-comp {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 1000px;
+  padding: 15px;
+}
+
+.arrow-and-count-container {
+  position: relative;
+  float: right;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-text {
+  font-weight: bolder;
+  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.page-count {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+}
+
+button {
+  border: none;
+  background-color: white;
+  outline: none;
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+
+.right-button, .left-button {
+  cursor: pointer;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  transition: 0.15s ease-in all;
+  box-shadow: 5px 5px 10px -5px rgba(0,0,0,0.55);
+}
+
+.right-button:hover, .left-button:hover {
+  box-shadow: 5px 5px 25px -5px rgba(0,0,0,0.55);
+}
+
+.left-chevron {
+  display: inline-block;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 7px; height: 7px;
+  transform: rotate(-225deg);
+}
+
+.right-chevron {
+  display: inline-block;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 7px; height: 7px;
+  transform: rotate(-45deg);
+}
+
+
+
+
+

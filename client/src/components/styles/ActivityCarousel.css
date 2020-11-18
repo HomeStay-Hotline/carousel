@@ -1,0 +1,14 @@
+.activity-carousel-container {
+  display: flex;
+  flex-direction: row;
+  overflow: scroll;
+  width: 1000px;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  padding-top: 5px;
+}
+
+.activity-carousel-container::-webkit-scrollbar {
+  /* removes scrollbar from view */
+  display: none;
+}

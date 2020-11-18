@@ -1,0 +1,63 @@
+.activity-card-container {
+  width: 166.66666666666667px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 20px;
+  overflow-wrap: normal;
+  white-space: pre-line;
+}
+
+.activity-img:hover {
+  transform: scale(1.025);
+}
+
+.activity-img {
+  border-radius: 10px;
+  width: 146px;
+  height: auto;
+  transition: 0.1s ease-in-out all;
+}
+
+.activity-heart-icon {
+  opacity: 70%;
+  background: inherit;
+  position: relative;
+  height: 12px;
+  width: 12px;
+  transform: rotate(-45deg);
+  cursor: pointer;
+  transition: 0.2s ease-in-out all;
+  box-sizing: border-box;
+}
+
+.activity-heart-icon::after {
+	background: inherit;
+	border-radius: 50%;
+	content: '';
+	position: absolute;
+	top: -50%;
+	left: 0;
+	height: 12px;
+  width: 12px;
+}
+
+.activity-heart-icon::before {
+	background: inherit;
+	border-radius: 50%;
+	content: '';
+	position: absolute;
+	top: 0;
+	right: -50%;
+	height: 12px;
+  width: 12px;
+}
+
+.a-heart-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.activity-image-container {
+  position: relative;
+}

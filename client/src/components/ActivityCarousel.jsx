@@ -1,10 +1,12 @@
 import React from 'react';
 import ActivityCard from './ActivityCard';
+import './styles/ActivityCarousel.css';
 
-export default function ActivityCarousel() {
+export default function ActivityCarousel({ activities }) {
+  const randomKey = () => (Math.random() * Math.random() * Math.random());
   return (
-    <div>
-      <ActivityCard />
+    <div className="activity-carousel-container">
+      {activities.map((activity) => <ActivityCard activity={activity} key={randomKey()} />)}
     </div>
   );
 }
