@@ -7,18 +7,18 @@ export default function PlaceHeader() {
     if (direction === 'r') {
       if (pageNumb !== 3) {
         setPageNumb(pageNumb + 1);
-        carouselDiv.scrollBy(1000, 0);
+        carouselDiv.scrollBy(1150, 0);
       } else {
         setPageNumb(1);
-        carouselDiv.scrollBy(-3000, 0);
+        carouselDiv.scrollBy(-3450, 0);
       }
     } else if (direction === 'l') {
       if (pageNumb !== 1) {
         setPageNumb(pageNumb - 1);
-        carouselDiv.scrollBy(-1000, 0);
+        carouselDiv.scrollBy(-1150, 0);
       } else {
         setPageNumb(3);
-        carouselDiv.scrollBy(3000, 0);
+        carouselDiv.scrollBy(3450, 0);
       }
     }
   };

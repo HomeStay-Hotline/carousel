@@ -1,7 +1,7 @@
 .header-comp {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  width: 1000px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 1150px;
   padding: 15px;
 }
 
@@ -16,7 +16,7 @@
 
 .header-text {
   font-weight: bolder;
-  font-size: 25px;
+  font-size: 21px;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -29,10 +29,6 @@ button {
   border: none;
   background-color: white;
   outline: none;
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* align-items: center; */
-  /* justify-content: center; */
 }
 
 .right-button, .left-button {

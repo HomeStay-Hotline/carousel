@@ -1,5 +1,5 @@
 .activity-card-container {
-  width: 166.66666666666667px;
+  width: 191.66666666666667px;
   padding-right: 10px;
   padding-left: 10px;
   padding-bottom: 20px;
@@ -13,7 +13,7 @@
 
 .activity-img {
   border-radius: 10px;
-  width: 146px;
+  width: 171.66666666666667px;
   height: auto;
   transition: 0.1s ease-in-out all;
 }
