@@ -5,7 +5,6 @@ export default function PlaceCard({ place }) {
   const [heartColor, setHeartColor] = useState(false);
   const handleHeartClick = () => {
     setHeartColor(!heartColor);
-    console.log(heartColor);
   };
   return (
     <div className="placecard-container">

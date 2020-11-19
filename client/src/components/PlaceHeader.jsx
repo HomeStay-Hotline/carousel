@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-export default function PlaceHeader() {
+export default function PlaceHeader({ forwardedRef }) {
   const [pageNumb, setPageNumb] = useState(1);
   const handleArrowClickPlaces = (direction) => {
-    const carouselDiv = document.querySelector('.place-carousel-container');
+    // const carouselDiv = document.querySelector('.place-carousel-container');
     if (direction === 'r') {
       if (pageNumb !== 3) {
         setPageNumb(pageNumb + 1);
-        carouselDiv.scrollBy(1150, 0);
+        forwardedRef.scrollBy(1150, 0);
       } else {
         setPageNumb(1);
-        carouselDiv.scrollBy(-3450, 0);
+        forwardedRef.scrollBy(-3450, 0);
       }
     } else if (direction === 'l') {
       if (pageNumb !== 1) {
         setPageNumb(pageNumb - 1);
-        carouselDiv.scrollBy(-1150, 0);
+        forwardedRef.scrollBy(-1150, 0);
       } else {
         setPageNumb(3);
-        carouselDiv.scrollBy(3450, 0);
+        forwardedRef.scrollBy(3450, 0);
       }
     }
   };
@@ -52,3 +53,7 @@ export default function PlaceHeader() {
     </div>
   );
 }
+
+PlaceHeader.propTypes = {
+  forwardedRef: PropTypes.object.isRequired, // dom element
+};

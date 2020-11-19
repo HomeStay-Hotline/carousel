@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 
 export default function ActivityCard({ activity }) {
   const [heartColor, setHeartColor] = useState(false);
-  console.log('rendering card again');
   const handleHeartClick = () => {
     setHeartColor(!heartColor);
-    console.log(heartColor);
   };
   return (
     <div className="activity-card-container">
