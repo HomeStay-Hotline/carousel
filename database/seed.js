@@ -45,7 +45,7 @@ const seedingPlaces = () => {
         location: `${faker.address.city()}, ${usState}`,
         price: generateRandInt(50, 200),
         liked: false,
-        url: `https://loremflickr.com/320/240/house?lock=${i + j}&random${j}`,
+        url: `https://loremflickr.com/320/240/house?lock=${i + j}&random=${j}`,
       };
       data.info.push(infoObj);
     }
