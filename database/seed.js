@@ -1,7 +1,13 @@
 const faker = require('faker');
 const db = require('./index.js');
 
-const generateRandFloat = (min, max) => (Math.random() * (max - min) + min).toFixed(2);
+const generateRandFloat = (min, max) => {
+  const n = (Math.random() * (max - min) + min).toFixed(2);
+  if (n.toString()[n.length - 1] === '0') {
+    return n.slice(0, n.length - 1);
+  }
+  return n;
+};
 
 const generateRandInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
