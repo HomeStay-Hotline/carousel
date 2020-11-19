@@ -1,29 +1,32 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import PlaceCard from '../../client/src/components/ActivityCard';
+import ActivityCard from '../../client/src/components/ActivityCard';
+
+const exampleData = {
+  _id: '5fae166e933b5709e66273db',
+  rating: 4.55,
+  activity_name: 'random activity',
+  price: 20,
+  total_ratings: 20,
+  url: 'https://loremflickr.com/320/240/house',
+};
 
 describe('PlaceCard', () => {
-  const handleHeartClick = jest.fn();
   let wrapper;
   beforeEach(() => {
-    const props = {
-      handleHeartClick,
-    };
-    wrapper = shallow(<PlaceCard {...props}/>);
+    wrapper = shallow(<ActivityCard activity={exampleData} />);
   });
 
   it('should exist', () => {
-    expect(wrapper.find('.activity-card-comp').toExist()).toBe(true);
+    // const wrapper = shallow(<ActivityCard activity={exampleData} />);
+    expect(wrapper.exists()).toBe(true);
   });
-  it('should contain 3 lines of information', () => {
-    expect(wrapper.find('p')).toHaveLength(3);
-  });
-  it('should contain one image', () => {
-    expect(wrapper.find('img')).toHaveLength(1);
-  });
-  it('should call the change-heart icon color function on click', () => {
-    const heartIcon = wrapper.find('div .heart-icon');
-    heartIcon.simulate('click');
-    expect(handleHeartClick).toBeCalled();
+  it('should call the change heart icon color function on click', () => {
+    // const wrapper = shallow(<ActivityCard activity={exampleData} />);
+    const heartIconContainer = wrapper.find('.a-heart-container');
+    heartIconContainer.simulate('click');
+    // this .find() NEEDS to happen AFTER the click event otherwise it is not updated w state change
+    const heartIcon = wrapper.find('.activity-heart-icon');
+    expect(heartIcon.prop('style')).toHaveProperty('background', 'red');
   });
 });
