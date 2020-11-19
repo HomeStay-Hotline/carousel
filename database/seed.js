@@ -32,11 +32,21 @@ const generateRandomListingType = () => {
   return options[idx];
 };
 
+const padNum = (number, size) => {
+  const result = `0000${number}`;
+  return result.substr(-size);
+};
+
+// old loremflicker url:
+// url: `https://loremflickr.com/320/240/house?lock=${i + j}&random=${j}`,
+
 const seedingPlaces = () => {
+  let counter = 1;
   for (let i = 1; i <= 100; i++) {
     const data = { id: i, info: [] };
     const usState = faker.address.state(); // keep state constant for a view
     for (let j = 0; j < 12; j++) {
+      counter++;
       const infoObj = {
         rating: generateRandFloat(3.5, 5),
         total_ratings: generateRandInt(1, 50),
@@ -45,7 +55,7 @@ const seedingPlaces = () => {
         location: `${faker.address.city()}, ${usState}`,
         price: generateRandInt(50, 200),
         liked: false,
-        url: `https://loremflickr.com/320/240/house?lock=${i + j}&random=${j}`,
+        url: `https://fec-carousel-pics.s3-us-west-2.amazonaws.com/placePics/place${padNum(counter, 4)}.jpg`,
       };
       data.info.push(infoObj);
     }
@@ -53,16 +63,21 @@ const seedingPlaces = () => {
   }
 };
 
+// old loremflicker url:
+// url: `https://loremflickr.com/320/480/vacation?lock=${i + j}&random=${j}`,
+
 const seedingActivities = () => {
+  let counter = 1;
   for (let i = 1; i <= 100; i++) {
     const data = { id: i, info: [] };
     for (let j = 0; j < 18; j++) {
+      counter++;
       const infoObj = {
         rating: generateRandFloat(3.5, 5),
         total_ratings: generateRandInt(1, 50),
         activity_name: faker.lorem.sentence(),
         price: generateRandInt(5, 30),
-        url: `https://loremflickr.com/320/480/vacation?lock=${i + j}&random=${j}`,
+        url: `https://fec-carousel-pics.s3-us-west-2.amazonaws.com/activityPics/activ${padNum(counter, 4)}.jpg`,
       };
       data.info.push(infoObj);
     }
