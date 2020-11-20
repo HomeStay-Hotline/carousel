@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 export default function ActivityHeader({ passedRef }) {
   const [pageNumbActivs, setPageNumbActivs] = useState(1);
   const handleArrowClickActivities = (direction) => {
-    // const carouselDiv = document.querySelector('.activity-carousel-container');
     if (direction === 'r') {
       if (pageNumbActivs !== 3) {
         setPageNumbActivs(pageNumbActivs + 1);

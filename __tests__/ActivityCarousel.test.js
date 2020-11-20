@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import ActivityCarousel from '../client/src/components/ActivityCarousel';
 import ActivityCard from '../client/src/components/ActivityCard';
 import testData from './__mocks__/dataMock';

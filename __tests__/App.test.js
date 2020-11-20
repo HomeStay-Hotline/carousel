@@ -1,6 +1,5 @@
-// import React from 'react';
-import * as React from 'react';
-import { shallow, mount } from 'enzyme';
+import React from 'react';
+import { shallow } from 'enzyme';
 import App from '../client/src/components/App';
 import PlaceHeader from '../client/src/components/PlaceHeader';
 import PlaceCarousel from '../client/src/components/PlaceCarousel';

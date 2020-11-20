@@ -4,7 +4,7 @@ import PlaceHeader from '../client/src/components/PlaceHeader';
 import App from '../client/src/components/App';
 
 describe('PlaceHeader', () => {
-  Element.prototype.scrollBy = jest.fn(); // jsdom does not have scrollBy built in
+  Element.prototype.scrollBy = jest.fn(); // for JSDOM functionality
 
   it('should exist', () => {
     const wrapper = shallow(<PlaceHeader passedRef={{}} />);
@@ -12,7 +12,7 @@ describe('PlaceHeader', () => {
   });
   describe('carousel movement', () => {
     it('should call carousel movement function anytime the arrow buttons are clicked', () => {
-      const wrapper = mount(<App />);
+      const wrapper = mount(<App />); // using App allows for react refs to connect
       const rightButton = wrapper.find('.left-button.place');
       const leftButton = wrapper.find('.right-button.place');
       wrapper.setProps({}); // needed for the ref
@@ -30,7 +30,7 @@ describe('PlaceHeader', () => {
     describe('right arrow', () => {
       it('should update count by one when right button is clicked once', () => {
         const button = wrapper.find('.right-button.place');
-        wrapper.setProps({}); // needed to force rerender
+        wrapper.setProps({});
         button.simulate('click');
         const pageCount = wrapper.find('.page-count').at(0).text().slice(0, 1);
         expect(pageCount).toBe('2');
@@ -41,7 +41,7 @@ describe('PlaceHeader', () => {
       });
       it('should reset count after two right clicks', () => {
         const button = wrapper.find('.right-button.place');
-        wrapper.setProps({}); // needed to force make sure ref exists
+        wrapper.setProps({});
         button.simulate('click');
         button.simulate('click');
         button.simulate('click');
@@ -53,7 +53,7 @@ describe('PlaceHeader', () => {
     describe('left arrow', () => {
       it('should reset count to page on inital click', () => {
         const button = wrapper.find('.left-button.place');
-        wrapper.setProps({}); // set ref
+        wrapper.setProps({});
         button.simulate('click');
         const pageCount = wrapper.find('.page-count').at(0).text().slice(0, 1);
         expect(pageCount).toBe('3');

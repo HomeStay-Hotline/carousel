@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import ActivityCard from '../client/src/components/ActivityCard';
 import testData from './__mocks__/dataMock';
 
@@ -10,14 +10,12 @@ describe('PlaceCard', () => {
   });
 
   it('should exist', () => {
-    // const wrapper = shallow(<ActivityCard activity={exampleData} />);
     expect(wrapper.exists()).toBe(true);
   });
   it('should call the change heart icon color function on click', () => {
-    // const wrapper = shallow(<ActivityCard activity={exampleData} />);
     const heartIconContainer = wrapper.find('.a-heart-container');
     heartIconContainer.simulate('click');
-    // this .find() NEEDS to happen AFTER the click event otherwise it is not updated w state change
+    // watch order (state)
     const heartIcon = wrapper.find('.activity-heart-icon');
     expect(heartIcon.prop('style')).toHaveProperty('background', 'red');
   });

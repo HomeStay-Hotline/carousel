@@ -313,12 +313,6 @@ const activitiesEx = [
   },
 ];
 
-// module.exports.activityEx = activityEx;
-// module.exports.placeEx = placeEx;
-// module.exports.placeExOdd = placeExOdd;
-// module.exports.placesEx = placesEx;
-// module.exports.activitiesEx = activitiesEx;
-
 module.exports = {
   activityEx,
   placeEx,

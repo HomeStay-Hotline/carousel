@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import PlaceCard from '../client/src/components/PlaceCard';
 import testData from './__mocks__/dataMock';
 
@@ -12,7 +12,7 @@ describe('PlaceCard', () => {
     const wrapper = shallow(<PlaceCard place={testData.placeEx} />);
     const heartIconContainer = wrapper.find('.a-heart-container');
     heartIconContainer.simulate('click');
-    // this .find() NEEDS to happen AFTER the click event otherwise it is not updated w state change
+    // order matters (state)
     const heartIcon = wrapper.find('.place-heart-icon');
     expect(heartIcon.prop('style')).toHaveProperty('background', 'red');
   });
@@ -29,15 +29,3 @@ describe('PlaceCard', () => {
     expect(wrapper.find('.place-img').prop('src')).toMatch(/^https/);
   });
 });
-
-// const placeEx = {
-//   _id: '5fae166e933b5709e66273db',
-//   rating: 5.0,
-//   listing_type: 'mock listing type',
-//   beds: 6,
-//   location: 'mock location',
-//   price: 50,
-//   liked: false,
-//   total_ratings: 6,
-//   url: 'https://loremflickr.com/320/240/house',
-// };

@@ -4,7 +4,7 @@ import ActivityHeader from '../client/src/components/ActivityHeader';
 import App from '../client/src/components/App';
 
 describe('ActivityHeader', () => {
-  Element.prototype.scrollBy = jest.fn(); // JSDOM does not have scrollBy built in
+  Element.prototype.scrollBy = jest.fn(); // for JSDOM functionality
 
   it('should exist', () => {
     const wrapper = shallow(<ActivityHeader passedRef={{}} />);

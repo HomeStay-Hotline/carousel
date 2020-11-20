@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import PlaceCarousel from '../client/src/components/PlaceCarousel';
 import PlaceCard from '../client/src/components/PlaceCard';
 import testData from './__mocks__/dataMock';

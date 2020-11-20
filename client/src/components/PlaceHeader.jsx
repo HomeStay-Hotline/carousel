@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 export default function PlaceHeader({ passedRef }) {
   const [pageNumb, setPageNumb] = useState(1);
   const handleArrowClickPlaces = (direction) => {
-    // const carouselDiv = document.querySelector('.place-carousel-container');
     if (direction === 'r') {
       if (pageNumb !== 3) {
         setPageNumb(pageNumb + 1);
