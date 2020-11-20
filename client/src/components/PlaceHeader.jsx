@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-export default function PlaceHeader({ forwardedRef }) {
+export default function PlaceHeader({ passedRef }) {
   const [pageNumb, setPageNumb] = useState(1);
   const handleArrowClickPlaces = (direction) => {
     // const carouselDiv = document.querySelector('.place-carousel-container');
     if (direction === 'r') {
       if (pageNumb !== 3) {
         setPageNumb(pageNumb + 1);
-        forwardedRef.scrollBy(1150, 0);
+        passedRef.scrollBy(1150, 0);
       } else {
         setPageNumb(1);
-        forwardedRef.scrollBy(-3450, 0);
+        passedRef.scrollBy(-3450, 0);
       }
     } else if (direction === 'l') {
       if (pageNumb !== 1) {
         setPageNumb(pageNumb - 1);
-        forwardedRef.scrollBy(-1150, 0);
+        passedRef.scrollBy(-1150, 0);
       } else {
         setPageNumb(3);
-        forwardedRef.scrollBy(3450, 0);
+        passedRef.scrollBy(3450, 0);
       }
     }
   };
@@ -55,5 +55,7 @@ export default function PlaceHeader({ forwardedRef }) {
 }
 
 PlaceHeader.propTypes = {
-  forwardedRef: PropTypes.object.isRequired, // dom element
+  passedRef: PropTypes.oneOfType([
+    PropTypes.object,
+  ]).isRequired,
 };

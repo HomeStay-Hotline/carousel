@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-export default function ActivityHeader() {
+export default function ActivityHeader({ passedRef }) {
   const [pageNumbActivs, setPageNumbActivs] = useState(1);
   const handleArrowClickActivities = (direction) => {
-    const carouselDiv = document.querySelector('.activity-carousel-container');
+    // const carouselDiv = document.querySelector('.activity-carousel-container');
     if (direction === 'r') {
       if (pageNumbActivs !== 3) {
         setPageNumbActivs(pageNumbActivs + 1);
-        carouselDiv.scrollBy(1150, 0);
+        passedRef.scrollBy(1150, 0);
       } else {
         setPageNumbActivs(1);
-        carouselDiv.scrollBy(-3450, 0);
+        passedRef.scrollBy(-3450, 0);
       }
     } else if (direction === 'l') {
       if (pageNumbActivs !== 1) {
         setPageNumbActivs(pageNumbActivs - 1);
-        carouselDiv.scrollBy(-1150, 0);
+        passedRef.scrollBy(-1150, 0);
       } else {
         setPageNumbActivs(3);
-        carouselDiv.scrollBy(3450, 0);
+        passedRef.scrollBy(3450, 0);
       }
     }
   };
@@ -51,3 +52,9 @@ export default function ActivityHeader() {
     </div>
   );
 }
+
+ActivityHeader.propTypes = {
+  passedRef: PropTypes.oneOfType([
+    PropTypes.object,
+  ]).isRequired,
+};

@@ -14,8 +14,8 @@ import './styles/ActivityCard.css';
 export default function App() {
   const [places, setPlaces] = useState([]);
   const [activities, setActivities] = useState([]);
-  const childRef = useRef(null);
-  // const [element, setElement] = useState(null); // NEWWW
+  const childRefPlace = useRef({});
+  const childRefActiv = useRef({});
 
   useEffect(() => {
     // const id = Math.floor(Math.random() * 100);
@@ -52,12 +52,12 @@ export default function App() {
     <div className="app-comp">
       {console.log('rendered')}
       <div>
-        <PlaceHeader forwardedRef={childRef.current} />
-        <PlaceCarousel places={places} forwardedRef={childRef} />
+        <PlaceHeader passedRef={childRefPlace.current} />
+        <PlaceCarousel places={places} connectedRef={childRefPlace} />
       </div>
       <div>
-        <ActivityHeader />
-        <ActivityCarousel activities={activities} />
+        <ActivityHeader passedRef={childRefActiv.current} />
+        <ActivityCarousel activities={activities} connectedRef={childRefActiv} />
       </div>
     </div>
   );

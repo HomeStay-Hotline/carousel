@@ -2,10 +2,10 @@ import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import PlaceCard from './PlaceCard';
 
-export default function PlaceCarousel({ places, forwardedRef }) {
+export default function PlaceCarousel({ places, connectedRef }) {
   const randomKey = () => (Math.random() * Math.random() * Math.random());
   return (
-    <div className="place-carousel-container" ref={forwardedRef}>
+    <div className="place-carousel-container" ref={connectedRef}>
       {places.map((place) => <PlaceCard place={place} key={randomKey()} />)}
     </div>
   );
@@ -13,5 +13,7 @@ export default function PlaceCarousel({ places, forwardedRef }) {
 
 PlaceCarousel.propTypes = {
   places: PropTypes.arrayOf(PropTypes.object).isRequired,
-  forwardedRef: PropTypes.object.isRequired, // dom element
+  connectedRef: PropTypes.oneOfType([
+    PropTypes.object,
+  ]).isRequired,
 };
