@@ -1,25 +1,23 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-export default function ActivityHeader({ handleArrowClick, pageNumb}) {
+export default function ActivityHeader({ passedRef }) {
   const [pageNumbActivs, setPageNumbActivs] = useState(1);
   const handleArrowClickActivities = (direction) => {
-    const carouselDiv = document.querySelector('.activity-carousel-container');
     if (direction === 'r') {
       if (pageNumbActivs !== 3) {
         setPageNumbActivs(pageNumbActivs + 1);
-        carouselDiv.scrollBy(1150, 0);
+        passedRef.scrollBy(1150, 0);
       } else {
         setPageNumbActivs(1);
-        carouselDiv.scrollBy(-3450, 0);
+        passedRef.scrollBy(-3450, 0);
       }
-    } else if (direction === 'l') {
-      if (pageNumbActivs !== 1) {
-        setPageNumbActivs(pageNumbActivs - 1);
-        carouselDiv.scrollBy(-1150, 0);
-      } else {
-        setPageNumbActivs(3);
-        carouselDiv.scrollBy(3450, 0);
-      }
+    } else if (pageNumbActivs !== 1) {
+      setPageNumbActivs(pageNumbActivs - 1);
+      passedRef.scrollBy(-1150, 0);
+    } else {
+      setPageNumbActivs(3);
+      passedRef.scrollBy(3450, 0);
     }
   };
   return (
@@ -33,7 +31,7 @@ export default function ActivityHeader({ handleArrowClick, pageNumb}) {
         </span>
         &nbsp;&nbsp;&nbsp;
         <button
-          className="right-button"
+          className="left-button activity"
           type="button"
           onClick={() => { handleArrowClickActivities('l'); }}
         >
@@ -41,7 +39,7 @@ export default function ActivityHeader({ handleArrowClick, pageNumb}) {
         </button>
         &nbsp;&nbsp;&nbsp;
         <button
-          className="left-button"
+          className="right-button activity"
           type="button"
           onClick={() => { handleArrowClickActivities('r'); }}
         >
@@ -51,3 +49,9 @@ export default function ActivityHeader({ handleArrowClick, pageNumb}) {
     </div>
   );
 }
+
+ActivityHeader.propTypes = {
+  passedRef: PropTypes.oneOfType([
+    PropTypes.object,
+  ]).isRequired,
+};

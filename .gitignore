@@ -1,2 +1,5 @@
 node_modules/
 coverage/
+database/activityPics/
+database/placePics/
+database/downloadPics.js

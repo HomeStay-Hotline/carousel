@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 export default function ActivityCard({ activity }) {
   const [heartColor, setHeartColor] = useState(false);
-  console.log('rendering card again');
   const handleHeartClick = () => {
     setHeartColor(!heartColor);
-    console.log(heartColor);
   };
   return (
     <div className="activity-card-container">
@@ -42,3 +41,13 @@ export default function ActivityCard({ activity }) {
     </div>
   );
 }
+
+ActivityCard.propTypes = {
+  activity: PropTypes.shape({
+    activity_name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    total_ratings: PropTypes.number.isRequired,
+    url: PropTypes.string.isRequired,
+  }).isRequired,
+};

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import PlaceHeader from './PlaceHeader';
 import PlaceCarousel from './PlaceCarousel';
@@ -14,17 +14,16 @@ import './styles/ActivityCard.css';
 export default function App() {
   const [places, setPlaces] = useState([]);
   const [activities, setActivities] = useState([]);
-  const [pageNumb, setPageNumb] = useState(1);
-  const [pageNumbActivs, setPageNumbActivs] = useState(1);
+  const childRefPlace = useRef({});
+  const childRefActiv = useRef({});
 
   useEffect(() => {
-    console.log('useEffect called');
-    const id = Math.floor(Math.random() * 100);
+    // const id = Math.floor(Math.random() * 100);
+    const id = 2;
     const placesURL = `/api/home/${id}/images/places`;
     axios.get(placesURL)
       .then((response) => {
         const fakePlaces = response.data[0].info;
-        console.log('axios get running');
         setPlaces(fakePlaces);
       })
       .catch((err) => {
@@ -45,12 +44,12 @@ export default function App() {
   return (
     <div className="app-comp">
       <div>
-        <PlaceHeader />
-        <PlaceCarousel places={places} />
+        <PlaceHeader passedRef={childRefPlace.current} />
+        <PlaceCarousel places={places} connectedRef={childRefPlace} />
       </div>
       <div>
-        <ActivityHeader />
-        <ActivityCarousel activities={activities} />
+        <ActivityHeader passedRef={childRefActiv.current} />
+        <ActivityCarousel activities={activities} connectedRef={childRefActiv} />
       </div>
     </div>
   );
