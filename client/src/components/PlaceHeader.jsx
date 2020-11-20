@@ -13,14 +13,12 @@ export default function PlaceHeader({ passedRef }) {
         setPageNumb(1);
         passedRef.scrollBy(-3450, 0);
       }
-    } else if (direction === 'l') {
-      if (pageNumb !== 1) {
-        setPageNumb(pageNumb - 1);
-        passedRef.scrollBy(-1150, 0);
-      } else {
-        setPageNumb(3);
-        passedRef.scrollBy(3450, 0);
-      }
+    } else if (pageNumb !== 1) {
+      setPageNumb(pageNumb - 1);
+      passedRef.scrollBy(-1150, 0);
+    } else {
+      setPageNumb(3);
+      passedRef.scrollBy(3450, 0);
     }
   };
 
@@ -35,7 +33,7 @@ export default function PlaceHeader({ passedRef }) {
         </span>
         &nbsp;&nbsp;&nbsp;
         <button
-          className="right-button"
+          className="left-button place"
           type="button"
           onClick={() => { handleArrowClickPlaces('l'); }} // here
         >
@@ -43,7 +41,7 @@ export default function PlaceHeader({ passedRef }) {
         </button>
         &nbsp;&nbsp;&nbsp;
         <button
-          className="left-button"
+          className="right-button place"
           type="button"
           onClick={() => { handleArrowClickPlaces('r'); }} // here
         >

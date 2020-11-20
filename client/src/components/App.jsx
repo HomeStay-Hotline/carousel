@@ -39,18 +39,10 @@ export default function App() {
       .catch((err) => {
         console.error(err);
       });
-
-    // setElement(childRef.current); // NEWW
-    // console.log(childRef.current);
-    // const test = childRef.current;
-    // test.scrollBy(750, 0);
-
-    // old === childRef.current
   }, []);
 
   return (
     <div className="app-comp">
-      {console.log('rendered')}
       <div>
         <PlaceHeader passedRef={childRefPlace.current} />
         <PlaceCarousel places={places} connectedRef={childRefPlace} />

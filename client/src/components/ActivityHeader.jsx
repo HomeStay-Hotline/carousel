@@ -13,14 +13,12 @@ export default function ActivityHeader({ passedRef }) {
         setPageNumbActivs(1);
         passedRef.scrollBy(-3450, 0);
       }
-    } else if (direction === 'l') {
-      if (pageNumbActivs !== 1) {
-        setPageNumbActivs(pageNumbActivs - 1);
-        passedRef.scrollBy(-1150, 0);
-      } else {
-        setPageNumbActivs(3);
-        passedRef.scrollBy(3450, 0);
-      }
+    } else if (pageNumbActivs !== 1) {
+      setPageNumbActivs(pageNumbActivs - 1);
+      passedRef.scrollBy(-1150, 0);
+    } else {
+      setPageNumbActivs(3);
+      passedRef.scrollBy(3450, 0);
     }
   };
   return (
@@ -34,7 +32,7 @@ export default function ActivityHeader({ passedRef }) {
         </span>
         &nbsp;&nbsp;&nbsp;
         <button
-          className="right-button"
+          className="left-button activity"
           type="button"
           onClick={() => { handleArrowClickActivities('l'); }}
         >
@@ -42,7 +40,7 @@ export default function ActivityHeader({ passedRef }) {
         </button>
         &nbsp;&nbsp;&nbsp;
         <button
-          className="left-button"
+          className="right-button activity"
           type="button"
           onClick={() => { handleArrowClickActivities('r'); }}
         >
