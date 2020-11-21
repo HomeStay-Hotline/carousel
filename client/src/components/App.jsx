@@ -16,7 +16,7 @@ export default function App() {
   const [activities, setActivities] = useState([]);
   const childRefPlace = useRef({});
   const childRefActiv = useRef({});
-  const id = window.location.pathname.slice[1];
+  const id = window.location.pathname.split('/')[1];
 
   useEffect(() => {
     const placesURL = `/api/homes/${id}/images/places`;
