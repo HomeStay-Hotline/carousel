@@ -7,11 +7,11 @@ const PORT = 3000 || process.env.PORT;
 const app = express();
 const PUB_DIR = path.resolve(__dirname, '..', 'public');
 
-app.use(express.static(PUB_DIR));
+app.use('/:id', express.static(PUB_DIR));
 app.use(morgan('dev'));
 app.use(express.json());
 
-app.get('/api/home/:id/images/places', (req, res) => {
+app.get('/api/homes/:id/images/places', (req, res) => {
   const { id } = req.params;
   db.fetchPlaceDatabyID(id)
     .then((queryResult) => {
@@ -22,7 +22,7 @@ app.get('/api/home/:id/images/places', (req, res) => {
     });
 });
 
-app.get('/api/home/:id/images/activities', (req, res) => {
+app.get('/api/homes/:id/images/activities', (req, res) => {
   const { id } = req.params;
   db.fetchActivityDatabyID(id)
     .then((queryResult) => {
