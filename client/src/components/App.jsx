@@ -16,11 +16,11 @@ export default function App() {
   const [activities, setActivities] = useState([]);
   const childRefPlace = useRef({});
   const childRefActiv = useRef({});
+  const path = window.location.pathname;
+  const id = path[path.length - 2];
 
   useEffect(() => {
-    // const id = Math.floor(Math.random() * 100);
-    const id = 2;
-    const placesURL = `/api/home/${id}/images/places`;
+    const placesURL = `/api/homes/${id}/images/places`;
     axios.get(placesURL)
       .then((response) => {
         const fakePlaces = response.data[0].info;
@@ -30,7 +30,7 @@ export default function App() {
         console.error(err);
       });
 
-    const activitiesURL = `/api/home/${id}/images/activities`;
+    const activitiesURL = `/api/homes/${id}/images/activities`;
     axios.get(activitiesURL)
       .then((response) => {
         const fakeActivs = response.data[0].info;
