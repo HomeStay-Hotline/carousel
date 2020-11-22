@@ -1,2 +1,2 @@
-npm build start &
-npm start &
+npm run build &
+node server/index.js &
