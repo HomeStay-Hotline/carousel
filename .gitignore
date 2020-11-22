@@ -4,4 +4,4 @@ database/activityPics/
 database/placePics/
 database/downloadPics.js
 *.pem
-*.sh
+login.sh
