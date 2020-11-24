@@ -9,7 +9,7 @@ export default function PlaceCard({ place }) {
   return (
     <div className="placecard-container">
       <div className="place-image-container">
-        <img className="place-img" src={place.url} alt="airbnb listing" />
+        <img className="place-img" src={place.url} alt="airbnb listing" loading="lazy" />
         <div className="white-circle" />
         {place.price % 2 === 0 ? <div className="superhost-icon">SUPERHOST</div> : ''}
         <div onClick={handleHeartClick} className="a-heart-container">

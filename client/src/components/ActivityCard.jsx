@@ -9,7 +9,7 @@ export default function ActivityCard({ activity }) {
   return (
     <div className="activity-card-container">
       <div className="activity-image-container">
-        <img className="activity-img" src={activity.url} alt="nearby activity" />
+        <img className="activity-img" src={activity.url} alt="nearby activity" loading="lazy" />
         <div className="white-circle" />
         <div onClick={handleHeartClick} className="a-heart-container">
           {heartColor

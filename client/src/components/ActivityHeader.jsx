@@ -33,6 +33,7 @@ export default function ActivityHeader({ passedRef }) {
         <button
           className="left-button activity"
           type="button"
+          aria-label="left button"
           onClick={() => { handleArrowClickActivities('l'); }}
         >
           <div className="left-chevron" />
@@ -41,6 +42,7 @@ export default function ActivityHeader({ passedRef }) {
         <button
           className="right-button activity"
           type="button"
+          aria-label="right button"
           onClick={() => { handleArrowClickActivities('r'); }}
         >
           <div className="right-chevron" />

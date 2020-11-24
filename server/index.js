@@ -11,6 +11,12 @@ app.use('/:id', express.static(PUB_DIR));
 app.use(morgan('dev'));
 app.use(express.json());
 
+app.get('*.js', (req, res, next) => {
+  req.url += '.gz';
+  res.set('Content-Encoding', 'gzip');
+  next();
+});
+
 app.get('/api/homes/:id/images/places', (req, res) => {
   const { id } = req.params;
   db.fetchPlaceDatabyID(id)

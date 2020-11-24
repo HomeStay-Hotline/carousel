@@ -34,6 +34,7 @@ export default function PlaceHeader({ passedRef }) {
         <button
           className="left-button place"
           type="button"
+          aria-label="left button"
           onClick={() => { handleArrowClickPlaces('l'); }} // here
         >
           <div className="left-chevron" />
@@ -42,6 +43,7 @@ export default function PlaceHeader({ passedRef }) {
         <button
           className="right-button place"
           type="button"
+          aria-label="right button"
           onClick={() => { handleArrowClickPlaces('r'); }} // here
         >
           <div className="right-chevron" />

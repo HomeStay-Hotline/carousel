@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, lazy } from 'react';
 import axios from 'axios';
 import PlaceHeader from './PlaceHeader';
 import PlaceCarousel from './PlaceCarousel';

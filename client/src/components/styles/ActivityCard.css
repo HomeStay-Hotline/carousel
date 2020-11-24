@@ -24,17 +24,6 @@
   right: 15px;
 }
 
-.white-circle {
-  position: absolute;
-  top: 4.7px;
-  right: 7px;
-  background-color: white;
-  opacity: 60%;
-  border-radius: 50%;
-  width: 28px;
-  height: 28px;
-}
-
 .activity-heart-icon {
   opacity: 70%;
   background: inherit;

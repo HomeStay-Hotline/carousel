@@ -44,7 +44,7 @@ const Places = mongoose.model('places', placesSchema);
 const Activities = mongoose.model('activities', activitiesSchema);
 
 const createPlaceDoc = (data) => {
-  // creates 1 places doc for my Places collection
+  // creates 1 places doc
   const doc = new Places(data);
   doc.save()
     .catch((err) => {
@@ -53,7 +53,7 @@ const createPlaceDoc = (data) => {
 };
 
 const createActivityDoc = (data) => {
-  // creates 1 activity doc for my Activities collection
+  // creates 1 activity doc
   const doc = new Activities(data);
   doc.save()
     .catch((err) => {
@@ -61,10 +61,7 @@ const createActivityDoc = (data) => {
     });
 };
 
-// fetch data for 1 out of the 100 possible places carsousel renderings
 const fetchPlaceDatabyID = (randID) => Places.find({ id: randID });
-
-// fetch data for 1 out of the 100 possible activity carsousel renderings
 const fetchActivityDatabyID = (randID) => Activities.find({ id: randID });
 
 module.exports.createPlaceDoc = createPlaceDoc;

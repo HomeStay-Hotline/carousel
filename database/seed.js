@@ -37,14 +37,11 @@ const padNum = (number, size) => {
   return result.substr(-size);
 };
 
-// old loremflicker url:
-// url: `https://loremflickr.com/320/240/house?lock=${i + j}&random=${j}`,
-
 const seedingPlaces = () => {
   let counter = 1;
   for (let i = 1; i <= 100; i++) {
     const data = { id: i, info: [] };
-    const usState = faker.address.state(); // keep state constant for a view
+    const usState = faker.address.state();
     for (let j = 0; j < 12; j++) {
       counter++;
       const infoObj = {
@@ -62,9 +59,6 @@ const seedingPlaces = () => {
     db.createPlaceDoc(data);
   }
 };
-
-// old loremflicker url:
-// url: `https://loremflickr.com/320/480/vacation?lock=${i + j}&random=${j}`,
 
 const seedingActivities = () => {
   let counter = 1;
@@ -87,6 +81,3 @@ const seedingActivities = () => {
 
 seedingPlaces();
 seedingActivities();
-
-module.exports.seedingPlaces = seedingPlaces;
-module.exports.seedingActivities = seedingActivities;
