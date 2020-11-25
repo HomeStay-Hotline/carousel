@@ -4,14 +4,26 @@ import Modal from './Modal';
 
 export default function PlaceCard({ place }) {
   const [heartColor, setHeartColor] = useState(false);
+  const [show, setShow] = useState(false);
   const handleHeartClick = () => {
     setHeartColor(!heartColor);
   };
-  const [show, setShow] = useState(false);
+  const resetModalView = () => {
+    setShow(false);
+  };
 
   return (
     <>
-      <Modal show={show} />
+      {show
+        ? (
+          <Modal
+            handleHeartClick={handleHeartClick}
+            resetModalView={resetModalView}
+            addOrDelete={heartColor ? 'Remove from' : 'Add to'}
+            image={place.url}
+          />
+        )
+        : '' }
       <div className="placecard-container">
         <div className="place-image-container">
           <img className="place-img" src={place.url} alt="airbnb listing" loading="lazy" />
@@ -19,8 +31,8 @@ export default function PlaceCard({ place }) {
           {place.price % 2 === 0 ? <div className="superhost-icon">SUPERHOST</div> : ''}
           <div
             onClick={() => {
-              handleHeartClick();
               setShow(!show);
+              // handleHeartClick(); // later
             }}
             className="a-heart-container"
           >

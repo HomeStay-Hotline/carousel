@@ -1,23 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-export default function Modal({ show }) {
+export default function Modal({
+  handleHeartClick, resetModalView, addOrDelete, image,
+}) {
+  const [show, setShow] = useState(true);
   return (
     <div>
       {show ? (
-        <div className="modal">
-          my modal
-          <button
-            className="modal-button"
-            type="button"
-            onClick={() => {
-              // setShow(!show);
-              console.log('hi');
-            }}
-          >
-            X
-          </button>
+        <div className="modal-container">
+          <div className="modal">
+            <img className="modal-image" src={image} alt="small preview" />
+            <p className="modal-question">
+              {`${addOrDelete} your favorites?`}
+            </p>
+            <div className="modal-button-container">
+              <button
+                className="modal-button"
+                type="button"
+                onClick={() => {
+                  setShow(!show);
+                  handleHeartClick();
+                  resetModalView();
+                }}
+              >
+                Yes
+              </button>
+              <button
+                className="modal-button"
+                type="button"
+                onClick={() => {
+                  setShow(!show);
+                  resetModalView();
+                }}
+              >
+                Maybe later
+              </button>
+            </div>
+          </div>
         </div>
       ) : ''}
     </div>
   );
 }
+
+Modal.propTypes = {
+  handleHeartClick: PropTypes.func.isRequired,
+  resetModalView: PropTypes.func.isRequired,
+  addOrDelete: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+};
