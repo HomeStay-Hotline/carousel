@@ -1,0 +1,91 @@
+.modal {
+  position: fixed;
+  left: 50%;
+  bottom: 50vh;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 15px;
+  z-index: 99999;
+  width: 50vw;
+  height: 25vh;
+  animation-name: slideIn;
+  -webkit-animation-name: slideIn;
+  -moz-animation-name: slideIn;
+  animation-duration: 0.3s;
+  transition: 0.3s ease all;
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  height: 100%;
+  width: 100%;
+}
+
+@keyframes slideIn {
+  from {bottom: 0; opacity: 0}
+  to {bottom: 50vh; opacity: 1}
+}
+
+@-webkit-keyframes slideIn {
+  from {bottom: 0; opacity: 0}
+  to {bottom: 50vh; opacity: 1}
+}
+
+@-moz-keyframes slideIn {
+  from {bottom: 0; opacity: 0}
+  to {bottom: 50vh; opacity: 1}
+}
+
+.modal-question {
+  padding: 15px;
+  border-bottom: .25px solid grey;
+  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  margin-right: 85px;
+  margin-left: 85px;
+}
+
+.modal-image { 
+  position: absolute;
+  border-radius: 20px;
+  width: 100px;
+  height: 100px;
+  bottom: 20px;
+  left: 12vw;
+  box-shadow: 5px 5px 10px -5px rgba(0,0,0,0.55);
+}
+
+.modal-button {
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid grey;
+  width: 175px;
+  height: 40px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px -5px rgba(0,0,0,0.55);
+  margin: 10px;
+}
+
+.modal-button:hover {
+  box-shadow: 5px 5px 20px -5px rgba(0,0,0,0.55);
+}
+
+.modal-button-container {
+  position: absolute;
+  right: 12vw;
+  height: 100px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

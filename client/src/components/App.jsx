@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, lazy } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import PlaceHeader from './PlaceHeader';
 import PlaceCarousel from './PlaceCarousel';
@@ -10,6 +10,7 @@ import './styles/PlaceCarousel.css';
 import './styles/ActivityCarousel.css';
 import './styles/PlaceCard.css';
 import './styles/ActivityCard.css';
+import './styles/Modal.css';
 
 export default function App() {
   const [places, setPlaces] = useState([]);
@@ -38,7 +39,7 @@ export default function App() {
       .catch((err) => {
         console.error(err);
       });
-  }, []);
+  }, [id]);
 
   return (
     <div className="app-comp">
