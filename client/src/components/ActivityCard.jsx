@@ -28,6 +28,7 @@ export default function ActivityCard({ activity }) {
           <img className="activity-img" src={activity.url} alt="nearby activity" loading="lazy" />
           <div className="white-circle" />
           <div
+            role="button"
             onClick={() => {
               setShow(!show);
             }}

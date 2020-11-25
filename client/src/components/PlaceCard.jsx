@@ -30,9 +30,9 @@ export default function PlaceCard({ place }) {
           <div className="white-circle" />
           {place.price % 2 === 0 ? <div className="superhost-icon">SUPERHOST</div> : ''}
           <div
+            role="button"
             onClick={() => {
               setShow(!show);
-              // handleHeartClick(); // later
             }}
             className="a-heart-container"
           >
@@ -84,6 +84,7 @@ PlaceCard.propTypes = {
   place: PropTypes.shape({
     beds: PropTypes.number.isRequired,
     location: PropTypes.string.isRequired,
+    listing_type: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     rating: PropTypes.number.isRequired,
     total_ratings: PropTypes.number.isRequired,
