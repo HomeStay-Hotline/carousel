@@ -1,0 +1,33 @@
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 50%;
+  bottom: 50vh;
+  transform: translate(-50%, -50%);
+  background-color: grey;
+  z-index: 99999;
+  width: 50vw;
+  height: 25vh;
+  animation-name: slideIn;
+  animation-duration: 0.4s;
+}
+
+.modal-button {
+  height: 25px;
+  width: 25px;
+  border-radius: 10px;
+  background-color: green;
+  cursor: pointer;
+}
+
+@keyframes slideIn {
+  from {bottom: 0; opacity: 0}
+  to {bottom: 50vh; opacity: 1}
+}
+
+@keyframes slideOut {
+  from {bottom: 50vh; opacity: 0}
+  to {bottom: 0; opacity: 1}
+}

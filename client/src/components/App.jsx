@@ -10,6 +10,7 @@ import './styles/PlaceCarousel.css';
 import './styles/ActivityCarousel.css';
 import './styles/PlaceCard.css';
 import './styles/ActivityCard.css';
+import './styles/Modal.css';
 
 export default function App() {
   const [places, setPlaces] = useState([]);
