@@ -9,7 +9,7 @@ export default function Modal({
     <div>
       {show ? (
         <div className="modal-container">
-          <div className="modal">
+          <div className="modall">
             <img className="modal-image" src={image} alt="small preview" />
             <p className="modal-question">
               {`${addOrDelete} your favorites?`}
