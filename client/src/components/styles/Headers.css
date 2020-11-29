@@ -25,13 +25,10 @@
   font-size: 13px;
 }
 
-button {
+.right-button, .left-button {
   border: none;
   background-color: white;
   outline: none;
-}
-
-.right-button, .left-button {
   cursor: pointer;
   border-radius: 50%;
   width: 30px;
