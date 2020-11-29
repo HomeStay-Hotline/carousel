@@ -10,32 +10,34 @@ export default function Modal({
       {show ? (
         <div className="modal-container">
           <div className="modall">
-            <img className="modal-image" src={image} alt="small preview" />
             <p className="modal-question">
               {`${addOrDelete} your favorites?`}
             </p>
-            <div className="modal-button-container">
-              <button
-                className="modal-button"
-                type="button"
-                onClick={() => {
-                  setShow(!show);
-                  handleHeartClick();
-                  resetModalView();
-                }}
-              >
-                Yes
-              </button>
-              <button
-                className="modal-button"
-                type="button"
-                onClick={() => {
-                  setShow(!show);
-                  resetModalView();
-                }}
-              >
-                Maybe later
-              </button>
+            <div className="preview-button-container">
+              <img className="modal-image" src={image} alt="small preview" />
+              <div className="modal-button-container">
+                <button
+                  className="modal-button"
+                  type="button"
+                  onClick={() => {
+                    setShow(!show);
+                    handleHeartClick();
+                    resetModalView();
+                  }}
+                >
+                  Yes
+                </button>
+                <button
+                  className="modal-button"
+                  type="button"
+                  onClick={() => {
+                    setShow(!show);
+                    resetModalView();
+                  }}
+                >
+                  Maybe later
+                </button>
+              </div>
             </div>
           </div>
         </div>

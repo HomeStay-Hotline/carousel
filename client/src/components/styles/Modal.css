@@ -1,13 +1,13 @@
 .modall {
   position: fixed;
   left: 50%;
-  bottom: 50vh;
+  bottom: 40vh;
   transform: translate(-50%, -50%);
   background-color: white;
   border-radius: 15px;
   z-index: 99999;
   width: 50vw;
-  height: 25vh;
+  height: 250px;
   animation-name: slideIn;
   -webkit-animation-name: slideIn;
   -moz-animation-name: slideIn;
@@ -27,17 +27,17 @@
 
 @keyframes slideIn {
   from {bottom: 0; opacity: 0}
-  to {bottom: 50vh; opacity: 1}
+  to {bottom: 40vh; opacity: 1}
 }
 
 @-webkit-keyframes slideIn {
   from {bottom: 0; opacity: 0}
-  to {bottom: 50vh; opacity: 1}
+  to {bottom: 40vh; opacity: 1}
 }
 
 @-moz-keyframes slideIn {
   from {bottom: 0; opacity: 0}
-  to {bottom: 50vh; opacity: 1}
+  to {bottom: 40vh; opacity: 1}
 }
 
 .modal-question {
@@ -49,34 +49,28 @@
   text-align: center;
   margin-right: 85px;
   margin-left: 85px;
-  /* border: 1px solid red; */
 }
 
 .modal-image { 
-  position: absolute;
   border-radius: 20px;
-  width: 100px;
-  height: 100px;
-  bottom: 20px;
-  left: 12vw;
+  width: 10vw;
+  height: auto;
   box-shadow: 5px 5px 10px -5px rgba(0,0,0,0.55);
-  /* border: 1px solid green; */
-  margin-right: 5px;
+  margin-right: 50px;
 }
 
 .modal-button {
   border-radius: 10px;
   cursor: pointer;
   border: 1px solid grey;
-  /* width: 175px; */
   width: 15vw;
-  height: 40px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 15px;
   border-radius: 5px;
   box-shadow: 5px 5px 10px -5px rgba(0,0,0,0.55);
-  margin: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .modal-button:hover {
@@ -84,7 +78,6 @@
 }
 
 .modal-button-container {
-  position: absolute;
   right: 12vw;
   height: 100px;
   bottom: 20px;
@@ -92,6 +85,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* border: 1px solid pink; */
-  margin-left: 10px;
+  border: 1px solid pink;
+  padding: 15px;
+}
+
+.preview-button-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
