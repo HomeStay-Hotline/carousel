@@ -11,7 +11,7 @@
   animation-name: slideIn;
   -webkit-animation-name: slideIn;
   -moz-animation-name: slideIn;
-  animation-duration: 0.3s;
+  animation-duration: 0.5s;
   transition: 0.3s ease all;
 }
 
@@ -53,16 +53,15 @@
 
 .modal-image { 
   border-radius: 20px;
-  width: 11vw;
-  height: auto;
+  width: auto;
+  height: 125px;
   box-shadow: 5px 5px 10px -5px rgba(0,0,0,0.55);
-  margin-right: 50px;
+  margin-right: 30px;
 }
 
 .modal-button {
   border-radius: 10px;
   cursor: pointer;
-  /* border: 1px solid grey; */
   width: 15vw;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
