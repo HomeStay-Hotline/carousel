@@ -1,7 +1,11 @@
 node_modules/
 coverage/
+database/images/
+database/activities/
 database/activityPics/
 database/placePics/
 database/downloadPics.js
+database/placesData.csv
+database/activitiesData.csv
 *.pem
 login.sh

@@ -38,27 +38,28 @@ const padNum = (number, size) => {
 
 const generateRandInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
+let index = 1;
 const create = () => {
-  for (let counter = 1; counter < 1000; counter++) {
-    // placeholder for id, database will give us an id
-    const id = faker.random.number(10);
-    const ratings = faker.random.number(5);
-    const totalRatings = faker.random.number(1000);
-    const usState = faker.address.state();
-    const listingType = generateRandomListingType();
-    const beds = generateRandInt(2, 6);
-    const location = `${faker.address.city()}, ${usState}`;
-    const price = generateRandInt(50, 200);
-    const liked = false;
-    const image = `https://fec-carousel-pics.s3-us-west-2.amazonaws.com/placePics/place${padNum(counter, 4)}.jpg`;
-    return `${id},${ratings},${totalRatings},${listingType},${beds}, ${location}, ${price}, ${liked}, ${image}\n`;
-  }
+  // placeholder for id, database will give us an id
+  const counter = generateRandInt(0, 1000);
+  const id = index;
+  const ratings = faker.random.number(5);
+  const totalRatings = faker.random.number(1000);
+  const usState = faker.address.state();
+  const listingType = generateRandomListingType();
+  const beds = generateRandInt(2, 6);
+  const location = `'${faker.address.city()}, ${usState}'`;
+  const price = generateRandInt(50, 200);
+  const liked = false;
+  const image = `"https://carousel-service-activities-sdc.s3.us-east-2.amazonaws.com/images/${padNum(counter, 4)}.jpg"`;
+  index++;
+  return `${id} | ${ratings} | ${totalRatings} | ${listingType} | ${beds} | ${location} | ${price} | ${liked} | ${image}\n`;
 };
 
 const startWriting = (writeStream, encoding, done) => {
   let i = lines;
   function writing() {
-    const canWrite = true;
+    let canWrite = true;
     do {
       if (i % (Math.floor(lines / 10)) === 10000) {
         console.log(`${i} lines left`);
@@ -71,7 +72,7 @@ const startWriting = (writeStream, encoding, done) => {
         writeStream.write(placesData, encoding, done);
       } else {
         // we are not done so don't fire callback
-        writeStream.write(placesData, encoding);
+        canWrite = writeStream.write(placesData, encoding);
       }
     // else call write and continue looping
     } while (i > 0 && canWrite);

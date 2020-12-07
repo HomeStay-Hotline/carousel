@@ -6,8 +6,8 @@ const fs = require('fs');
 const faker = require('faker');
 const { argv } = require('yargs');
 
-const lines = argv.lines || 10;
-const filename = argv.output || 'placesData.csv';
+const lines = argv.lines || 100;
+const filename = argv.output || 'activitiesData.jsonl';
 const stream = fs.createWriteStream(filename);
 
 const padNum = (number, size) => {
@@ -17,28 +17,28 @@ const padNum = (number, size) => {
 
 const generateRandInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
+let index = 0;
 const create = () => {
   // placeholder for id, database will give us an id
-  let counter = 1;
-  let index = 1;
-  while (index < 100) {
-    const id = index;
-    const ratings = faker.random.number(5);
-    const totalRatings = faker.random.number(1000);
-    const activityName = faker.lorem.sentence();
-    const price = generateRandInt(50, 200);
-    const image = `https://carousel-service-sdc.s3.us-east-2.amazonaws.com/images/${padNum(counter, 4)}.jpg`;
-    counter++;
-    index++;
-    return `${id},${ratings},${totalRatings},${activityName},${price},${image}\n`;
-  }
+  const counter = generateRandInt(0, 999);
+  const id = index;
+  const ratings = faker.random.number(5);
+  const totalRatings = faker.random.number(1000);
+  const activityName = faker.lorem.sentence();
+  const price = generateRandInt(50, 200);
+  const image = `"https://carousel-service-activities-sdc.s3.us-east-2.amazonaws.com/activities/${padNum(counter, 3)}.jpg"`;
+  index++;
+  return `${id} | ${ratings} | ${totalRatings} | ${activityName} | ${price} | ${image}\n`;
 };
 
 const startWriting = (writeStream, encoding, done) => {
   let i = lines;
   function writing() {
-    const canWrite = true;
+    let canWrite = true;
     do {
+      if (i % (Math.floor(lines / 10)) === 10000) {
+        console.log(`${i} lines left`);
+      }
       i--;
       const placesData = create();
       // check if i === 0 so we would write and call `done`
@@ -47,7 +47,7 @@ const startWriting = (writeStream, encoding, done) => {
         writeStream.write(placesData, encoding, done);
       } else {
         // we are not done so don't fire callback
-        writeStream.write(placesData, encoding);
+        canWrite = writeStream.write(placesData, encoding);
       }
     // else call write and continue looping
     } while (i > 0 && canWrite);

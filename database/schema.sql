@@ -13,7 +13,7 @@ CREATE TABLE placesInfo (
   place_location text,
   price int,
   linked boolean,
-  img text,
+  img text
 );
 
 
@@ -23,5 +23,5 @@ CREATE TABLE activitiesInfo (
     total_ratings int,
     activity_name text,
     price money,
-    img text,
+    img text
 );

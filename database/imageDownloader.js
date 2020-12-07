@@ -3,7 +3,7 @@ const axios = require('axios');
 const path = require('path');
 
 const PATH = path.join(__dirname);
-const url = 'https://loremflickr.com/267/200/states';
+const url = 'https://loremflickr.com/267/200/activities';
 
 const padNum = (number, size) => {
   const result = `0000000${number}`;
@@ -11,7 +11,7 @@ const padNum = (number, size) => {
 };
 
 const getImage = (fileName) => {
-  const WRITE_PATH = path.join(PATH, 'images', `${fileName}.jpg`);
+  const WRITE_PATH = path.join(PATH, 'activities', `${fileName}.jpg`);
   axios.get(url, { responseType: 'stream' })
     .then((response) => {
       const stream = response.data;
