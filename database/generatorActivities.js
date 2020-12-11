@@ -6,8 +6,8 @@ const fs = require('fs');
 const faker = require('faker');
 const { argv } = require('yargs');
 
-const lines = argv.lines || 100;
-const filename = argv.output || 'activitiesData.jsonl';
+const lines = argv.lines || 10000000;
+const filename = argv.output || 'activitiesData.csv';
 const stream = fs.createWriteStream(filename);
 
 const padNum = (number, size) => {
@@ -21,14 +21,14 @@ let index = 0;
 const create = () => {
   // placeholder for id, database will give us an id
   const counter = generateRandInt(0, 999);
-  const id = index;
+  const listingid = index;
   const ratings = faker.random.number(5);
   const totalRatings = faker.random.number(1000);
-  const activityName = faker.lorem.sentence();
+  const activityName = `"${faker.lorem.sentence()}"`;
   const price = generateRandInt(50, 200);
   const image = `"https://carousel-service-activities-sdc.s3.us-east-2.amazonaws.com/activities/${padNum(counter, 3)}.jpg"`;
   index++;
-  return `${id} | ${ratings} | ${totalRatings} | ${activityName} | ${price} | ${image}\n`;
+  return `${listingid}|${ratings}|${totalRatings}|${activityName}|${price}|${image}\n`;
 };
 
 const startWriting = (writeStream, encoding, done) => {
@@ -62,7 +62,7 @@ const startWriting = (writeStream, encoding, done) => {
 
 // write our `header` line before we invoke the loop
 // eslint-disable-next-line quotes
-stream.write(`id, ratings, totalRatings, activityName, price, image\n`, 'utf-8');
+stream.write(`listingid|ratings|totalRatings|activityName|price|image\n`, 'utf-8');
 // invoke startWriting and pass callback
 startWriting(stream, 'utf-8', () => {
   stream.end();
