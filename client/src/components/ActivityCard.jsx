@@ -19,13 +19,13 @@ export default function ActivityCard({ activity }) {
             handleHeartClick={handleHeartClick}
             resetModalView={resetModalView}
             addOrDelete={heartColor ? 'Remove from' : 'Add to'}
-            image={activity.url}
+            image={activity.img}
           />
         )
         : '' }
       <div className="activity-card-container">
         <div className="activity-image-container">
-          <img className="activity-img" src={activity.url} alt="nearby activity" loading="lazy" />
+          <img className="activity-img" src={activity.img} alt="nearby activity" loading="lazy" />
           <div className="white-circle" />
           <div
             role="button"
@@ -53,7 +53,6 @@ export default function ActivityCard({ activity }) {
           {activity.activity_name}
         </p>
         <span className="activity-price">
-          $
           {activity.price}
         </span>
         <span className="activity-pperson">
@@ -71,6 +70,6 @@ ActivityCard.propTypes = {
     price: PropTypes.number.isRequired,
     rating: PropTypes.number.isRequired,
     total_ratings: PropTypes.number.isRequired,
-    url: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired,
   }).isRequired,
 };

@@ -4,6 +4,11 @@ createdb carouselServiceDB;
 
 \c carouselServiceDB;
 
+CREATE TABLE primaryRecord (
+  id serial,
+  locationState text
+);
+
 CREATE TABLE placesInfo (
   id serial,
   ratings int,
@@ -11,6 +16,7 @@ CREATE TABLE placesInfo (
   listing_type text,
   beds int,
   place_location text,
+  state_location text,
   price int,
   linked boolean,
   img text

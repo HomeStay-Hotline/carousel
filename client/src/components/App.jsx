@@ -23,7 +23,7 @@ export default function App() {
     const placesURL = `/api/homes/${id}/images/places`;
     axios.get(placesURL)
       .then((response) => {
-        const fakePlaces = response.data[0].info;
+        const fakePlaces = response.data.rows;
         setPlaces(fakePlaces);
       })
       .catch((err) => {
@@ -33,7 +33,7 @@ export default function App() {
     const activitiesURL = `/api/homes/${id}/images/activities`;
     axios.get(activitiesURL)
       .then((response) => {
-        const fakeActivs = response.data[0].info;
+        const fakeActivs = response.data.rows;
         setActivities(fakeActivs);
       })
       .catch((err) => {

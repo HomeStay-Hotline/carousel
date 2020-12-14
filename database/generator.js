@@ -12,20 +12,20 @@ const stream = fs.createWriteStream(filename);
 
 const generateRandomListingType = () => {
   const options = [
-    `"Entire home"`,
-    `"Private room"`,
-    `"Room in boutique hotel"`,
-    `"Hotel room"`,
-    `"Guesthouse"`,
-    `"Farm stay"`,
-    `"Mansion"`,
-    `"Studio"`,
-    `"Apartment"`,
-    `"Studio apartment"`,
-    `"Penthouse"`,
-    `"Boathouse"`,
-    `"Cabin"`,
-    `"Cottage"`,
+    '"Entire home"',
+    '"Private room"',
+    '"Room in boutique hotel"',
+    '"Hotel room"',
+    '"Guesthouse"',
+    '"Farm stay"',
+    '"Mansion"',
+    '"Studio"',
+    '"Apartment"',
+    '"Studio apartment"',
+    '"Penthouse"',
+    '"Boathouse"',
+    '"Cabin"',
+    '"Cottage"',
   ];
   const idx = Math.floor(Math.random() * options.length);
   return options[idx];
@@ -41,7 +41,7 @@ const generateRandInt = (min, max) => Math.floor(Math.random() * (max - min + 1)
 let index = 1;
 const create = () => {
   // placeholder for id, database will give us an id
-  const counter = generateRandInt(0, 1000);
+  const counter = generateRandInt(0, 999);
   const listingid = index;
   const ratings = faker.random.number(5);
   const totalRatings = faker.random.number(1000);
@@ -49,11 +49,12 @@ const create = () => {
   const listingType = generateRandomListingType();
   const beds = generateRandInt(2, 6);
   const location = `"${faker.address.city()}, ${usState}"`;
+  const locationState = `${usState}`;
   const price = generateRandInt(50, 200);
   const liked = false;
-  const image = `"https://carousel-service-activities-sdc.s3.us-east-2.amazonaws.com/images/${padNum(counter, 4)}.jpg"`;
+  const image = `"https://carousel-service-sdc.s3.us-east-2.amazonaws.com/images/${padNum(counter, 3)}.jpg"`;
   index++;
-  return `${listingid}|${ratings}|${totalRatings}|${listingType}|${beds}|${location}|${price}|${liked}|${image}\n`;
+  return `${listingid}|${ratings}|${totalRatings}|${listingType}|${beds}|${location}|${locationState}|${price}|${liked}|${image}\n`;
 };
 
 const startWriting = (writeStream, encoding, done) => {
@@ -87,7 +88,7 @@ const startWriting = (writeStream, encoding, done) => {
 
 // write our `header` line before we invoke the loop
 // eslint-disable-next-line quotes
-stream.write(`listingid,ratings,totalRatings,listingType,beds,location,price,liked,image\n`, 'utf-8');
+stream.write(`listingid|ratings|totalRatings|listingType|beds|location|stateLocation|price|linked|img\n`, 'utf-8');
 // invoke startWriting and pass callback
 startWriting(stream, 'utf-8', () => {
   stream.end();

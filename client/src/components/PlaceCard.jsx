@@ -20,13 +20,13 @@ export default function PlaceCard({ place }) {
             handleHeartClick={handleHeartClick}
             resetModalView={resetModalView}
             addOrDelete={heartColor ? 'Remove from' : 'Add to'}
-            image={place.url}
+            image={place.img}
           />
         )
         : '' }
       <div className="placecard-container">
         <div className="place-image-container">
-          <img className="place-img" src={place.url} alt="airbnb listing" loading="lazy" />
+          <img className="place-img" src={place.img} alt="airbnb listing" loading="lazy" />
           <div className="white-circle" />
           {place.price % 2 === 0 ? <div className="superhost-icon">SUPERHOST</div> : ''}
           <div
@@ -88,6 +88,6 @@ PlaceCard.propTypes = {
     price: PropTypes.number.isRequired,
     rating: PropTypes.number.isRequired,
     total_ratings: PropTypes.number.isRequired,
-    url: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired,
   }).isRequired,
 };
