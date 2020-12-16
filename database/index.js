@@ -1,10 +1,22 @@
 const { Pool } = require('pg');
+const info = require('./info.js');
 
 const carouselDB = new Pool({
-  database: 'carouselDB',
+  host: info.url,
+  port: 5432,
+  user: info.username,
+  password: info.password,
+  database: info.database,
 });
-
+console.log('from database => ', info);
 module.exports = carouselDB;
+
+// psql \
+//    --host=<DB instance endpoint> \
+//    --port=<port> \
+//    --username=<master username> \
+//    --password \
+//    --dbname=<database name>
 
 // const mongoose = require('mongoose');
 

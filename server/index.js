@@ -24,7 +24,7 @@ app.get('/api/homes/:id/images/places', (req, res) => {
   const query = `Select * from placesinfo where state_location = (select locationState from primaryRecord where id = ${id}) limit 12`;
   carouselDB.query(query, (err, data) => {
     if (err) {
-      console.log('Failed to retrieve data');
+      console.log('Failed to retrieve data!', err);
       res.sendStatus(500);
     } else {
       console.log('Success');
@@ -38,7 +38,7 @@ app.get('/api/homes/:id/images/activities', (req, res) => {
   const query = 'Select * from activitiesInfo where ratings > 3 limit 18';
   carouselDB.query(query, (err, data) => {
     if (err) {
-      console.log('Failed to retrieve data');
+      console.log('Failed to retrieve data!', err);
       res.sendStatus(500);
     } else {
       console.log('Success');
