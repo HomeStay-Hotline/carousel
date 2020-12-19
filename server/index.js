@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 // const morgan = require('morgan');
 const path = require('path');
@@ -6,6 +7,13 @@ const carouselDB = require('../database/index.js');
 
 const PORT = 3000 || process.env.PORT;
 const app = express();
+
+app.use('/', express.static(path.resolve(__dirname, '..', 'public')));
+
+app.get('/loaderio-4d098e34654c2d1973d1e48888a40a67.html', (req, res) => {
+  res.send('loaderio-4d098e34654c2d1973d1e48888a40a67');
+});
+
 const PUB_DIR = path.resolve(__dirname, '..', 'public');
 
 app.use('/:id', express.static(PUB_DIR));
@@ -19,7 +27,6 @@ app.get('*.js', (req, res, next) => {
 });
 
 app.get('/api/homes/:id/images/places', (req, res) => {
-  console.log(req.params);
   const { id } = req.params;
   const query = `Select * from placesinfo where state_location = (select locationState from primaryRecord where id = ${id}) limit 12`;
   carouselDB.query(query, (err, data) => {
@@ -27,7 +34,6 @@ app.get('/api/homes/:id/images/places', (req, res) => {
       console.log('Failed to retrieve data!', err);
       res.sendStatus(500);
     } else {
-      console.log('Success');
       res.send(data);
     }
   });

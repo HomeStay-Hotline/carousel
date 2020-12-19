@@ -5,7 +5,7 @@ const carouselDB = new Pool({
   host: info.url,
   port: 5432,
   user: info.username,
-  password: info.password,
+  password: 'password',
   database: info.database,
 });
 console.log('from database => ', info);

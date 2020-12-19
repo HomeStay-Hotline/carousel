@@ -1,4 +1,4 @@
 exports.username = 'postgres';
 exports.password = '240Blima35!!';
-exports.url = 'ec2-13-58-146-123.us-east-2.compute.amazonaws.com';
+exports.url = '18.224.51.210';
 exports.database = 'postgres';
