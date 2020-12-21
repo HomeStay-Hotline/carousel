@@ -11,6 +11,6 @@ database/placesData.csv
 database/activitiesData.csv
 
 ./newrelic.js
-
+*.csv
 *.pem
 login.sh
