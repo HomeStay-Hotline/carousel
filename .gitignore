@@ -5,8 +5,8 @@ database/activities
 database/images
 
 database/imageDownloader.js
-placesData.csv
-primaries.csv
+./placesData.csv
+./primaries.csv
 database/placesData.csv
 database/activitiesData.csv
 
